@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-graphite text-titanium antialiased;
+  }
+}
+
+@layer components {
+  .text-shimmer {
+    background: linear-gradient(
+      90deg,
+      #E2E2E2 0%,
+      #E2E2E2 40%,
+      #FF4D00 50%,
+      #E2E2E2 60%,
+      #E2E2E2 100%
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .text-shimmer:hover {
+    animation: shimmer 2s linear infinite;
+  }
+
+  .glass-morphism {
+    @apply backdrop-blur-[100px] bg-gunmetal/40 border border-white/5;
+  }
+
+  .metallic-gradient {
+    background: linear-gradient(
+      135deg,
+      rgba(226, 226, 226, 0.1) 0%,
+      rgba(18, 18, 18, 0.8) 50%,
+      rgba(8, 8, 8, 0.9) 100%
+    );
+  }
+
+  .iridescent-border {
+    position: relative;
+  }
+
+  .iridescent-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 77, 0, 0.5),
+      rgba(226, 226, 226, 0.1),
+      rgba(255, 77, 0, 0.3)
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  .mono-text {
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.05em;
+  }
+
+  .anti-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 2rem;
+  }
+
+  .depth-layer-1 { transform: translateZ(0px); }
+  .depth-layer-2 { transform: translateZ(50px); }
+  .depth-layer-3 { transform: translateZ(100px); }
+  .depth-layer-4 { transform: translateZ(150px); }
+  .depth-layer-5 { transform: translateZ(200px); }
+}
+
+@layer utilities {
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+
+  .text-micro {
+    font-size: 7pt;
+    line-height: 1.4;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+}
